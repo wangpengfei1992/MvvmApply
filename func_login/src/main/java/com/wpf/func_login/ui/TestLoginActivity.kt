@@ -14,20 +14,24 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  *  Time:   2021/7/8
  *  Description : This is description.
  */
-@Route(path = Constants.RouterPath.LOGIN_ACTIVITY_PATH)
-class LoginActivity : BaseActivity<ActivityLoginMainBinding>() {
+@Route(path = Constants.RouterPath.TEST_LOGIN_ACTIVITY_PATH)
+class TestLoginActivity : BaseActivity<ActivityLoginMainBinding>() {
 
     private val mViewModel: LoginViewModel by viewModel()
     override fun getViewBinding(): ActivityLoginMainBinding = ActivityLoginMainBinding.inflate(layoutInflater)
 
     override fun onCreateAfter() {
         mViewBinding.login.setOnClickListener {
+
             //登录方式1
             mViewModel.login("123", "123456")
+
         }
         mViewBinding.rigster.setOnClickListener {
-            aRouterOk(reslut = "我想返回什么呢")
-            finish()
+//登录方式2
+            mViewModel.loginAndResult1("123","123456").callBackObserver(this,{
+                LogUtil.e(TAG,"直接回调成功")
+            },{LogUtil.e(TAG,"${it.errorMsg}")},{LogUtil.e(TAG,"完成记过")})
         }
         mViewModel.loginLiveData.callBackObserver(this,{
             LogUtil.e(TAG,"成功")

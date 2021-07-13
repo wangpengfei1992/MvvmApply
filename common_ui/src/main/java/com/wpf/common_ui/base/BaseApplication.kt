@@ -3,6 +3,8 @@ package com.wpf.common_ui.base
 import android.app.Application
 import android.content.Context
 import androidx.multidex.MultiDex
+import com.alibaba.android.arouter.launcher.ARouter
+import com.wpf.common_ui.BuildConfig
 import com.wpf.common_ui.utils.ContextUtil
 
 /**
@@ -20,6 +22,17 @@ abstract class BaseApplication : Application() {
         super.onCreate()
         ContextUtil.initContext(this)
         onCreateAfter()
+        intArouter()
     }
+
+    private fun intArouter() {
+        if (BuildConfig.DEBUG){
+            ARouter.openLog();
+            ARouter.openDebug();
+        }
+
+        ARouter.init(this);
+    }
+
     abstract fun onCreateAfter()
 }

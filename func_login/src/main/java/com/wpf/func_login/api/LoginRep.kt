@@ -2,6 +2,7 @@ package com.wpf.func_login.api
 
 import com.wpf.common_net.base.BaseRepository
 import com.wpf.common_net.base.StateLiveData
+import com.wpf.common_net.bean.BaseResp
 import com.wpf.func_conmmon.bean.LoginResponse
 
 /**
@@ -18,7 +19,12 @@ class LoginRep(var api: LoginApi) : BaseRepository() {
     ) = executeReqWithFlow(loginLiveData) {
         api.login(userName, password)
     }
-
+    suspend fun login1(
+            userName: String,
+            password: String
+    ) = executeReqWithFlow1() {
+        api.login(userName, password)
+    }
     suspend fun rigester(
         userName: String,
         password: String,

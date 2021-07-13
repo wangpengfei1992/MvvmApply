@@ -1,5 +1,5 @@
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-kapt'//arouter
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
@@ -12,6 +12,12 @@ android {
         versionName rootProject.ext.defaultConfig.versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        kapt {
+            arguments {
+                arg("AROUTER_MODULE_NAME", project.getName())
+            }
+        }
     }
 
     buildTypes {
@@ -61,4 +67,8 @@ dependencies {
 
     //gson
     implementation("com.google.code.gson:gson:2.8.6")
+
+    //arouter
+    implementation "com.alibaba:arouter-api:$arouter_api_version"
+    kapt "com.alibaba:arouter-compiler:$arouter_compiler_version"
 }

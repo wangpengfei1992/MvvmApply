@@ -1,9 +1,6 @@
 package com.wpf.common_net.base
 
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.wpf.common_net.bean.BaseResp
 import com.wpf.common_net.bean.DataState
 import kotlinx.coroutines.CoroutineExceptionHandler
@@ -76,4 +73,25 @@ fun ViewModel.launch(
             onComplete()
         }
     }
+}
+
+fun <T:Any> LiveData<BaseResp<T>>.callBackObserver(
+        owner: LifecycleOwner,
+        success: (BaseResp<T>) -> Unit,
+        error: (BaseResp<T>) -> Unit,
+        start:()->Unit
+) {
+    this.observe(owner, Observer<BaseResp<T>> {
+        when(it.dataState){
+            DataState.STATE_SUCCESS, DataState.STATE_EMPTY->{
+                success(it)
+            }
+            DataState.STATE_FAILED, DataState.STATE_ERROR->{
+                error(it)
+            }
+            DataState.STATE_LOADING->{
+                start()
+            }
+        }
+    })
 }

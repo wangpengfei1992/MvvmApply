@@ -1,9 +1,12 @@
 package com.wpf.common_net.base
 
+import android.util.Log
 import androidx.lifecycle.*
+import com.wpf.common_net.bean.BaseResp
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.lang.Exception
 
 /**
  *  Author: feipeng.wang
@@ -19,12 +22,24 @@ open class BaseViewModel :ViewModel(){
             block()
         }
     }
-    fun <T : Any> emit(block: EmitBlock<T>): LiveData<T> = liveData {
-        var result: T? = null
-        withContext(Dispatchers.IO) {
-            result = block()
-        }
-        emit(result!!)
-    }
 
+
+    /*异步请求同步检测*/
+    fun <T : Any> emitEnter1(block: EmitBlock<BaseResp<T>>): LiveData<BaseResp<T>> = liveData {
+        try {
+            var result: BaseResp<T>? = null
+            Log.e("wpf","emitEnter1===开始")
+            withContext(Dispatchers.IO) {
+                result = block()
+            }
+            emit(result!!)
+        }catch (e:Exception){
+            Log.e("wpf","emitEnter1===异常")
+            var result: BaseResp<T> = BaseResp<T>()
+            result.errorMsg = e.message
+            result.errorCode = -1
+            result.error = e
+            emit(result!!)
+        }
+    }
 }

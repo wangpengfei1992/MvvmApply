@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.wpf.func_login">
    <application>
+       <activity android:name=".ui.TestLoginActivity"/>
        <activity android:name=".ui.LoginActivity"/>
    </application>
 </manifest>

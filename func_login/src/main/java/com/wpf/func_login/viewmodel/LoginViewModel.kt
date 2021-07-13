@@ -23,6 +23,11 @@ class LoginViewModel(var repository: LoginRep) :BaseViewModel() {
             repository.login(userName, password,loginLiveData)
         }
     }
+
+    fun loginAndResult1(userName: String, password: String):LiveData<BaseResp<LoginResponse>>
+            = emitEnter1 {
+        repository.login1(userName, password)
+    }
     fun rigester( userName: String,
                   password: String,
                   rePassword: String,){
