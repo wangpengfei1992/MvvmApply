@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+            android:id="@+id/fragment_home"
+            android:icon="@drawable/ic_baseline_home_24"
+            android:title="@string/title_first"/>
+
+    <item
+            android:id="@+id/fragment_project"
+            android:icon="@drawable/ic_baseline_call_split_24"
+            android:title="@string/title_project"/>
+
+    <item
+            android:id="@+id/fragment_personal"
+            android:icon="@drawable/ic_baseline_person_outline_24"
+            android:title="@string/title_my"/>
+
+</menu>

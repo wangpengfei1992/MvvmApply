@@ -15,4 +15,7 @@ dependencies {
     implementation(project(':common'))
     implementation(project(':func_common'))
     implementation(project(':func_login'))
+    implementation(project(':func_home'))
+    implementation(project(':func_project'))
+    implementation(project(':func_personal'))
 }

@@ -1,3 +1,6 @@
+include ':func_personal'
+include ':func_project'
+include ':func_home'
 include ':common_arouter'
 include ':func_common'
 include ':func_login'

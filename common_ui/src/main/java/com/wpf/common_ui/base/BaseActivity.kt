@@ -9,6 +9,8 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.anker.common.utils.WeakHandler
 import com.wpf.common_arouter.*
+import com.wpf.common_ui.utils.StatusBar
+import com.wpf.common_ui.utils.StatusBarUtil
 
 /**
  *  Author: feipeng.wang
@@ -24,14 +26,15 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     private var keyID:String ?= null
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        onCreateBefore()
+        onCreateBefore(savedInstanceState)
         super.onCreate(savedInstanceState)
         mBaseActivity = this
+        StatusBar().fitSystemBar(this)
         _binding = getViewBinding()
         setContentView(_binding.root)
         mBaseHandler = WeakHandler(this, Looper.myLooper()!!)
         keyID = intent.getStringExtra(ARouterConstant.AROUTER_KEY_CALLBACK)
-        onCreateAfter()
+        onCreateAfter(savedInstanceState)
     }
 
     override fun onDestroy() {
@@ -39,11 +42,14 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         if (mBaseHandler!=null){
             mBaseHandler.removeCallbacksAndMessages(null)
         }
+        keyID?.let {
+            ARouterConstant.instance.cacherMap.remove(keyID)
+        }
     }
 
-    open fun onCreateBefore(){}
+    open fun onCreateBefore(savedInstanceState: Bundle?){}
     abstract fun getViewBinding(): VB
-    abstract fun onCreateAfter()
+    abstract fun onCreateAfter(savedInstanceState: Bundle?)
     open fun handleMessage(msg: Message) {}
 
     /*路由方法*/
@@ -55,7 +61,6 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
                 resultCallBack: CoreRouterResult? = null){
         baseContext.aRouter(postcard,navigationCallback,resultCallBack)
     }
-
     fun aRouterOk(reslut:String = ""){
         baseContext.postcardOnResult(keyID,reslut)
     }

@@ -1,5 +1,6 @@
 package com.wpf.func_login.ui
 
+import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
 import com.wpf.common_net.base.callBackObserver
 import com.wpf.common_ui.base.BaseActivity
@@ -20,7 +21,7 @@ class TestLoginActivity : BaseActivity<ActivityLoginMainBinding>() {
     private val mViewModel: LoginViewModel by viewModel()
     override fun getViewBinding(): ActivityLoginMainBinding = ActivityLoginMainBinding.inflate(layoutInflater)
 
-    override fun onCreateAfter() {
+    override fun onCreateAfter(savedInstanceState: Bundle?) {
         mViewBinding.login.setOnClickListener {
 
             //登录方式1

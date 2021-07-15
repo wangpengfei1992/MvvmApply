@@ -4,7 +4,7 @@ buildscript {
         kotlin_version = "1.4.32"
         arouter_api_version = "1.5.2"
         arouter_compiler_version = "1.5.2"
-
+        nav_version = "2.3.5"
 
         koin_version = "2.2.1"
         lifecycle_version = "2.2.0"
