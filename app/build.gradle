@@ -6,13 +6,11 @@ android {
 
     defaultConfig {
         applicationId rootProject.ext.applicationId.app
-
     }
 
 }
 
 dependencies {
-    implementation(project(':common'))
     implementation(project(':func_common'))
     implementation(project(':func_login'))
     implementation(project(':func_home'))

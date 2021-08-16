@@ -15,4 +15,8 @@ class PersonalFragment : BaseFragment<FragmentPersonalBinding>() {
         inflater: LayoutInflater,
         viewGroup: ViewGroup?
     ): FragmentPersonalBinding = FragmentPersonalBinding.inflate(inflater,viewGroup,false)
+
+    override fun onCreateAfter() {
+
+    }
 }

@@ -3,6 +3,5 @@ apply from: "../common.gradle"
 android {
 }
 dependencies {
-    implementation(project(':common'))
     implementation(project(':func_common'))
 }

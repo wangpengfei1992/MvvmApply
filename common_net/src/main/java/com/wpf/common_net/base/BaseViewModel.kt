@@ -42,4 +42,13 @@ open class BaseViewModel :ViewModel(){
             emit(result!!)
         }
     }
+
+    //启动协程处理任务
+    fun launchOnIO(block: suspend () -> Unit) {
+        viewModelScope.launch {
+            withContext(Dispatchers.IO) {
+                block()
+            }
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.wpf.func_personal.ui
+package com.wpf.func_project.ui
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -15,4 +15,8 @@ class ProjectFragment : BaseFragment<FragmentProjectBinding>() {
         inflater: LayoutInflater,
         viewGroup: ViewGroup?
     ): FragmentProjectBinding = FragmentProjectBinding.inflate(inflater,viewGroup,false)
+
+    override fun onCreateAfter() {
+
+    }
 }

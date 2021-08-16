@@ -15,7 +15,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  *  Time:   2021/7/13
  *  Description : This is description.
  */
-class HomeFragment : BaseFragment<FragmentHomeBinding>() {
+class TestHomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val mViewModel: HomeViewModel by viewModel()
     override fun getViewBinding(
         inflater: LayoutInflater,

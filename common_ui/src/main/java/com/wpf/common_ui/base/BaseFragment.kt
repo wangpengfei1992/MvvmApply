@@ -55,7 +55,7 @@ abstract class BaseFragment<VB : ViewBinding> :Fragment(){
             mBaseHandler.removeCallbacksAndMessages(null)
         }
     }
-    open fun onCreateAfter(){}
+    abstract fun onCreateAfter()
     open fun handleMessage(msg: Message) {}
     abstract fun getViewBinding(inflater: LayoutInflater, viewGroup: ViewGroup?): VB
 
