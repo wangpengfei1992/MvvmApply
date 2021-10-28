@@ -43,34 +43,32 @@ fun Context.aRouter(
             ARouterConstant.instance.cacherMap[keyID] = resultCallBack
         }
     }
-    if (navigationCallback != null){
-        postcard.navigation(this,object : NavigationCallback{
-            override fun onFound(postcard: Postcard?) {
-                navigationCallback.onFound(postcard)
-            }
+    postcard.navigation(this,object : NavigationCallback{
+        override fun onFound(postcard: Postcard?) {
+            navigationCallback?.onFound(postcard)
+        }
 
-            override fun onLost(postcard: Postcard?) {
-                postcardOnCancel(keyID)
-                navigationCallback.onLost(postcard)
-            }
+        override fun onLost(postcard: Postcard?) {
+            postcardOnCancel(keyID)
+            navigationCallback?.onLost(postcard)
+        }
 
-            override fun onArrival(postcard: Postcard?) {
-                navigationCallback.onArrival(postcard)
-            }
+        override fun onArrival(postcard: Postcard?) {
+            navigationCallback?.onArrival(postcard)
+        }
 
-            override fun onInterrupt(postcard: Postcard?) {
-                postcardOnCancel(keyID)
-                navigationCallback.onInterrupt(postcard)
-            }
+        override fun onInterrupt(postcard: Postcard?) {
+            postcardOnCancel(keyID)
+            navigationCallback?.onInterrupt(postcard)
+        }
 
-            private fun postcardOnCancel(keyID: String) {
-                if (ARouterConstant.instance.cacherMap.containsKey(keyID)){
-                    ARouterConstant.instance.cacherMap.remove(keyID)
-                }
+        private fun postcardOnCancel(keyID: String) {
+            if (ARouterConstant.instance.cacherMap.containsKey(keyID)){
+                ARouterConstant.instance.cacherMap.remove(keyID)
             }
+        }
 
-        })
-    }
+    })
 }
 fun withArouterData(path:String,bundle: Bundle ?= null):Postcard{
     if (path.isNullOrEmpty()){
