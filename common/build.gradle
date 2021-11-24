@@ -6,7 +6,7 @@ android{
 dependencies {
     api(project(':common_ui'))
     api(project(':common_net'))
-
+    api(project(':common_player'))
     //room
 
 }
