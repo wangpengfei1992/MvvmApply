@@ -15,5 +15,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(){
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         startAct<MainActivity>(this)
+        finish()
     }
 }

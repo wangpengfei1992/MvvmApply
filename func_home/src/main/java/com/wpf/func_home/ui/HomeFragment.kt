@@ -70,7 +70,29 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 /*                statedMediaPlay.pause()
                 statedMediaPlay.resume()*/
             }
+            homeTestDrawerlayout.setOnClickListener {
+                //测试Drawerlayout右滑动
+                if (drawerLayoutRoot.isDrawerVisible(drawerStart)){
+                    drawerLayoutRoot.closeDrawer(drawerStart)
+                }else{
+                    drawerLayoutRoot.openDrawer(drawerStart)
+                }
+            }
+            homeTestDrawerlayout.post {
+                DrawerlayoutHelp.change(activity,drawerLayoutRoot,drawerStart)
+            }
+
+            homeTestDrawerlayoutLeft.setOnClickListener {
+                //测试Drawerlayout
+                if (drawerLayoutRoot.isDrawerVisible(drawerEnd)){
+                    drawerLayoutRoot.closeDrawer(drawerEnd)
+                }else{
+                    drawerLayoutRoot.openDrawer(drawerEnd)
+                }
+            }
+
         }
+
         startAct()
     }
     private fun startAct(){
