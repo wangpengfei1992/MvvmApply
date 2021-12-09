@@ -8,7 +8,7 @@
         android:id="@+id/fragment_home"
         android:name="com.wpf.func_home.ui.HomeFragment"
         android:label="HomeFragment"
-        tools:layout="@layout/fragment_home"/>
+        tools:layout="@layout/default_bottom_layout"/>
     <fragment
         android:id="@+id/fragment_personal"
         android:name="com.wpf.func_personal.ui.PersonalFragment"

@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#fff"
-        android:gravity="center_horizontal"
+        android:gravity="center_horizontal|bottom"
         android:orientation="vertical">
 
         <TextView
@@ -91,6 +91,32 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/home_test_find" />
+
+        <com.wpf.func_home.widget.SlideBottomLayout
+            android:id="@+id/bottom_drawer_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            app:handler_height="50dp">
+
+            <LinearLayout
+                android:id="@+id/layout_price_detail"
+                android:layout_width="match_parent"
+                android:background="@android:color/holo_blue_bright"
+                android:orientation="vertical"
+                android:layout_height="250dp">
+                <TextView
+                    android:id="@+id/handle"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#d95858"
+                    android:gravity="center"
+                    android:text="handle11111111111"
+                    android:textColor="@android:color/white"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+        </com.wpf.func_home.widget.SlideBottomLayout>
     </LinearLayout>
 
     <!--  侧边栏  -->
@@ -123,5 +149,8 @@
             android:text="左边菜单LinearLayout"
             android:textColor="#fff" />
     </LinearLayout>
+
+
+
 
 </androidx.drawerlayout.widget.DrawerLayout>
