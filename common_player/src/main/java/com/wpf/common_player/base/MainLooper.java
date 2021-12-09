@@ -1,4 +1,4 @@
-package com.wpf.common_player;
+package com.wpf.common_player.base;
 import android.os.Handler;
 import android.os.Looper;
 /**

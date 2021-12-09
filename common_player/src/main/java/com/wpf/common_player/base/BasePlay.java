@@ -1,4 +1,4 @@
-package com.wpf.common_player;
+package com.wpf.common_player.base;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;

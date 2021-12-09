@@ -1,4 +1,4 @@
-package com.wpf.common_player;
+package com.wpf.common_player.base;
 
 import android.media.MediaPlayer;
 import android.text.TextUtils;
@@ -9,7 +9,7 @@ import java.io.IOException;
 /**
  * Author: feipeng.wang
  * Time:   2021/11/17
- * Description : This is description.
+ * Description : 播放基础功能封装
  *  仅仅做mediaPlayer的一个包装
  *  实现以下的功能
  *  1. 在外界非正常调用时,不会直接抛出illegtalStateException

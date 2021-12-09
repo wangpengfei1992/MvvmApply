@@ -1,4 +1,4 @@
-package com.wpf.common_player;
+package com.wpf.common_player.base;
 
 /**
  * Author: feipeng.wang
