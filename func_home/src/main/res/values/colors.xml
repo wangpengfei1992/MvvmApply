@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
+    <!--主要文字颜色-->
+    <color name="t1_color">#202229</color>
+    <!--次要文字颜色-->
+    <color name="t2_color">#8E8D93</color>
+    <!--按钮文字颜色-->
+    <color name="t3_color">#FFFFFF</color>
+    <!--警告文字颜色-->
+    <color name="t4_color">#EB4F00</color>
+    <!--强调文字颜色-->
+    <color name="t5_color">#3092BB</color>
 </resources>

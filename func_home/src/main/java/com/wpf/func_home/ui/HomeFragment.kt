@@ -64,10 +64,12 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             }
 
             homeTestPlayer.setOnClickListener {
-                val wavmixPath = "/storage/emulated/0/wpf/AsrDemo3/max.wav"
-                statedMediaPlay.play(wavmixPath)
+/*                val wavmixPath = "/storage/emulated/0/wpf/AsrDemo3/max.wav"
+                statedMediaPlay.play(wavmixPath)*/
 /*                statedMediaPlay.pause()
                 statedMediaPlay.resume()*/
+
+                activity?.let { it1 -> com.wpf.common.ext.startAct<PlaySoundTestAct>(it1) }
             }
             homeTestDrawerlayout.setOnClickListener {
                 //测试Drawerlayout右滑动

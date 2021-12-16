@@ -4,5 +4,7 @@ apply from: "../common.gradle"
 
 dependencies {
 
-    //
+    //音频播放器--StarrySky（基于Exoplayer）https://github.com/EspoirX/StarrySky
+    implementation 'com.github.EspoirX:StarrySky:v2.6.5'
+
 }

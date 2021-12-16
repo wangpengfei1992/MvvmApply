@@ -1,5 +1,6 @@
 package com.wpf.mvvmapply
 
+import com.wpf.common_player.control.PlayerControl
 import com.wpf.common_ui.base.BaseApplication
 import com.wpf.func_home.di.homeModul
 import com.wpf.func_login.di.loginModule
@@ -16,6 +17,7 @@ class MainApplication : BaseApplication() {
     private val allModules = arrayListOf<Module>(loginModule,homeModul)
     override fun onCreateAfter() {
         initKoin()
+        PlayerControl.instance.init(this)
     }
 
     private fun initKoin() {
