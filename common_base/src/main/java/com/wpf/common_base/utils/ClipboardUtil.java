@@ -1,4 +1,4 @@
-package com.wpf.common_ui.utils;
+package com.wpf.common_base.utils;
 
 import android.app.Activity;
 import android.content.ClipData;

@@ -10,4 +10,6 @@ dependencies {
     api 'com.google.android.material:material:1.2.1'
     implementation 'androidx.multidex:multidex:2.0.1'
     api(project(':common_arouter'))
+    implementation(project(':common_base'))
+    implementation(project(':common_net'))
 }

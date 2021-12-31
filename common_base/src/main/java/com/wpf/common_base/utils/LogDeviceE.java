@@ -5,7 +5,7 @@
 // modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
 
 //
-package com.wpf.common_ui.utils;
+package com.wpf.common_base.utils;
 
 import android.util.Log;
 

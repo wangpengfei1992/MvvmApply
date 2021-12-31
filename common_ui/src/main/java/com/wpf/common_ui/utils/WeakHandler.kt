@@ -1,4 +1,4 @@
-package com.anker.common.utils
+package com.wpf.common_ui.utils
 
 import android.os.Handler
 import android.os.Looper

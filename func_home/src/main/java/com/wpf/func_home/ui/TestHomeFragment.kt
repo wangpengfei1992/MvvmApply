@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import com.wpf.common.room.KeyValueDb
 import com.wpf.common.room.KeyValueEntity
 import com.wpf.common_ui.base.BaseFragment
-import com.wpf.common_ui.utils.LogUtil
+import com.wpf.common_base.utils.LogUtil
 import com.wpf.func_home.databinding.FragmentHomeBinding
 import com.wpf.func_home.viewmodel.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel

@@ -7,10 +7,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
-import com.anker.common.utils.WeakHandler
 import com.wpf.common_arouter.*
-import com.wpf.common_ui.utils.StatusBar
-import com.wpf.common_ui.utils.StatusBarUtil
+import com.wpf.common_base.utils.StatusBar
+import com.wpf.common_ui.utils.WeakHandler
+
 
 /**
  *  Author: feipeng.wang
@@ -21,7 +21,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     protected val TAG = this::class.java.simpleName
     private lateinit var _binding: VB
     protected val mViewBinding get() = _binding
-    lateinit var mBaseHandler:WeakHandler
+    lateinit var mBaseHandler: WeakHandler
     protected lateinit var mBaseActivity: BaseActivity<VB>
     private var keyID:String ?= null
 

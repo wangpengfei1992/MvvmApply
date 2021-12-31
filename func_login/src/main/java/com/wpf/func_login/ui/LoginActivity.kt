@@ -2,9 +2,9 @@ package com.wpf.func_login.ui
 
 import android.os.Bundle
 import com.alibaba.android.arouter.facade.annotation.Route
+import com.wpf.common_base.utils.LogUtil
 import com.wpf.common_net.base.callBackObserver
 import com.wpf.common_ui.base.BaseActivity
-import com.wpf.common_ui.utils.LogUtil
 import com.wpf.func_conmmon.help.Constants
 import com.wpf.func_login.databinding.ActivityLoginMainBinding
 import com.wpf.func_login.viewmodel.LoginViewModel

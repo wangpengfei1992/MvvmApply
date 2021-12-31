@@ -7,6 +7,7 @@ dependencies {
     api(project(':common_ui'))
     api(project(':common_net'))
     api(project(':common_player'))
+    api(project(':common_base'))
     //room
 
 }

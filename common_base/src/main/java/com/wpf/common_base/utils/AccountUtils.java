@@ -5,7 +5,7 @@
 // modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
 
 //
-package com.wpf.common_ui.utils;
+package com.wpf.common_base.utils;
 
 
 import android.content.Context;
@@ -15,8 +15,6 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
-
-import com.wpf.common_ui.utils.AccountBaseUtil;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;

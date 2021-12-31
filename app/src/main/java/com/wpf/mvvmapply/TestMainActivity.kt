@@ -5,7 +5,7 @@ import com.alibaba.android.arouter.facade.Postcard
 import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.wpf.common_arouter.CoreRouterResult
 import com.wpf.common_ui.base.BaseActivity
-import com.wpf.common_ui.utils.LogUtil
+import com.wpf.common_base.utils.LogUtil
 import com.wpf.func_conmmon.help.Constants
 import com.wpf.mvvmapply.databinding.ActivityTestMainBinding
 

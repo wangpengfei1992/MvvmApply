@@ -3,7 +3,7 @@ package com.wpf.common.room
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.wpf.common_ui.utils.ContextUtil
+import com.wpf.common_base.utils.ContextUtil
 
 /**
  *  Author: feipeng.wang

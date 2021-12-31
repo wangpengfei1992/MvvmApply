@@ -5,7 +5,7 @@ import android.content.Context
 import androidx.multidex.MultiDex
 import com.alibaba.android.arouter.launcher.ARouter
 import com.wpf.common_ui.BuildConfig
-import com.wpf.common_ui.utils.ContextUtil
+import com.wpf.common_base.utils.ContextUtil
 
 /**
  *  Author: feipeng.wang

@@ -3,7 +3,7 @@
 // * The program and materials is not free. Without our permission, any use, including but not limited to reproduction, retransmission, communication, display, mirror, download, modification, is expressly prohibited. Otherwise, it will be pursued for legal liability.
 
 //
-package com.wpf.common_ui.utils;
+package com.wpf.common_base.utils;
 
 import android.app.Activity;
 import android.app.Application;

@@ -3,7 +3,7 @@ package com.wpf.common.room
 import androidx.room.*
 import androidx.sqlite.db.SimpleSQLiteQuery
 import androidx.sqlite.db.SupportSQLiteQuery
-import com.wpf.common_ui.utils.LogUtil
+import com.wpf.common_base.utils.LogUtil
 import java.lang.reflect.ParameterizedType
 
 /**
