@@ -17,10 +17,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  */
 class TestHomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val mViewModel: HomeViewModel by viewModel()
-    override fun getViewBinding(
-        inflater: LayoutInflater,
-        viewGroup: ViewGroup?
-    ): FragmentHomeBinding = FragmentHomeBinding.inflate(inflater,viewGroup,false)
 
     override fun onCreateAfter() {
         mViewBinding?.apply {

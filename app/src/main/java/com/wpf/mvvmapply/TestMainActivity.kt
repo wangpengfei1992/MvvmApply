@@ -10,7 +10,6 @@ import com.wpf.func_conmmon.help.Constants
 import com.wpf.mvvmapply.databinding.ActivityTestMainBinding
 
 class TestMainActivity : BaseActivity<ActivityTestMainBinding>() {
-    override fun getViewBinding(): ActivityTestMainBinding = ActivityTestMainBinding.inflate(layoutInflater)
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         mViewBinding.login.setOnClickListener {

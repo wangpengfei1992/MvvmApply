@@ -3,6 +3,7 @@ package com.wpf.common_ui.base
 import android.os.Bundle
 import android.os.Looper
 import android.os.Message
+import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import com.alibaba.android.arouter.facade.Postcard
@@ -10,6 +11,10 @@ import com.alibaba.android.arouter.facade.callback.NavigationCallback
 import com.wpf.common_arouter.*
 import com.wpf.common_base.utils.StatusBar
 import com.wpf.common_ui.utils.WeakHandler
+import java.lang.reflect.InvocationTargetException
+import java.lang.reflect.Method
+import java.lang.reflect.ParameterizedType
+import java.lang.reflect.Type
 
 
 /**
@@ -48,20 +53,34 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     }
 
     open fun onCreateBefore(savedInstanceState: Bundle?){}
-    abstract fun getViewBinding(): VB
     abstract fun onCreateAfter(savedInstanceState: Bundle?)
     open fun handleMessage(msg: Message) {}
+    private fun getViewBinding(): VB{
+        val superclass: Type = javaClass.genericSuperclass
+        val aClass:Class<VB> = (superclass as ParameterizedType).actualTypeArguments[0] as Class<VB>
+        try {
+            val method: Method =aClass.getDeclaredMethod("inflate", LayoutInflater::class.java)
+            _binding = method.invoke(null, layoutInflater) as VB
+        } catch (e: NoSuchMethodException) {
+            e.printStackTrace()
+        } catch (e: IllegalAccessException) {
+            e.printStackTrace()
+        } catch (e: InvocationTargetException) {
+            e.printStackTrace()
+        }
+        return _binding
+    }
 
     /*路由方法*/
-    fun aRouter(path:String, bundle: Bundle ?= null, navigationCallback: NavigationCallback? = null,
+    fun aRouter(path: String, bundle: Bundle? = null, navigationCallback: NavigationCallback? = null,
                 resultCallBack: CoreRouterResult? = null){
-        aRouter(withArouterData(path,bundle),navigationCallback,resultCallBack)
+        aRouter(withArouterData(path, bundle), navigationCallback, resultCallBack)
     }
     fun aRouter(postcard: Postcard, navigationCallback: NavigationCallback? = null,
                 resultCallBack: CoreRouterResult? = null){
-        baseContext.aRouter(postcard,navigationCallback,resultCallBack)
+        baseContext.aRouter(postcard, navigationCallback, resultCallBack)
     }
-    fun aRouterOk(reslut:String = ""){
-        baseContext.postcardOnResult(keyID,reslut)
+    fun aRouterOk(reslut: String = ""){
+        baseContext.postcardOnResult(keyID, reslut)
     }
 }

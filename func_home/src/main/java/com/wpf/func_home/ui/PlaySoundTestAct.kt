@@ -17,7 +17,6 @@ class PlaySoundTestAct : BaseActivity<ActPlaySoundTestBinding>() {
     private val fileName = "/storage/emulated/0/wpf/AsrDemo3/max.wav"
     private var isPlay = false
 
-    override fun getViewBinding(): ActPlaySoundTestBinding = ActPlaySoundTestBinding.inflate(layoutInflater)
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         mViewBinding.apply {

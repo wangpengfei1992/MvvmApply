@@ -19,7 +19,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class LoginActivity : BaseActivity<ActivityLoginMainBinding>() {
 
     private val mViewModel: LoginViewModel by viewModel()
-    override fun getViewBinding(): ActivityLoginMainBinding = ActivityLoginMainBinding.inflate(layoutInflater)
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         mViewBinding.login.setOnClickListener {

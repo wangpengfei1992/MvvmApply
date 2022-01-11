@@ -11,10 +11,6 @@ import com.wpf.func_project.databinding.FragmentProjectBinding
  *  Description : This is description.
  */
 class ProjectFragment : BaseFragment<FragmentProjectBinding>() {
-    override fun getViewBinding(
-        inflater: LayoutInflater,
-        viewGroup: ViewGroup?
-    ): FragmentProjectBinding = FragmentProjectBinding.inflate(inflater,viewGroup,false)
 
     override fun onCreateAfter() {
 

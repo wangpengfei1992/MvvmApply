@@ -11,7 +11,6 @@ import com.wpf.mvvmapply.databinding.ActivitySplashBinding
  *  Description : This is description.
  */
 class SplashActivity : BaseActivity<ActivitySplashBinding>(){
-    override fun getViewBinding(): ActivitySplashBinding = ActivitySplashBinding.inflate(layoutInflater)
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         startAct<MainActivity>(this)

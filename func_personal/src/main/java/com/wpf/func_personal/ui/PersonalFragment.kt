@@ -13,10 +13,6 @@ import com.wpf.func_personal.vm.PersonUiViewModel
  *  Description : This is description.
  */
 class PersonalFragment : BaseVMFragment<PersonUiViewModel,FragmentPersonalBinding>() {
-    override fun getViewBinding(
-        inflater: LayoutInflater,
-        viewGroup: ViewGroup?
-    ): FragmentPersonalBinding = FragmentPersonalBinding.inflate(inflater,viewGroup,false)
 
     override fun providerVMClass(): Class<PersonUiViewModel>? {
         return PersonUiViewModel::class.java

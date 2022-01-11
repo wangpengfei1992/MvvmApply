@@ -28,10 +28,6 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     private val mViewModel: HomeViewModel by viewModel()
     private val statedMediaPlay by lazy { StatedMediaPlay() }
-    override fun getViewBinding(
-        inflater: LayoutInflater,
-        viewGroup: ViewGroup?
-    ): FragmentHomeBinding = FragmentHomeBinding.inflate(inflater,viewGroup,false)
 
     override fun onCreateAfter() {
         mViewBinding?.apply {

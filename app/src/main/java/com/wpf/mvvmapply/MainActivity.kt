@@ -14,7 +14,6 @@ import com.wpf.mvvmapply.databinding.ActivityMainBinding
  *  Description : This is description.
  */
 class MainActivity :BaseActivity<ActivityMainBinding>(){
-    override fun getViewBinding(): ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
 
     override fun onCreateAfter(savedInstanceState: Bundle?) {
         setupBottomNavigationBar()
