@@ -62,7 +62,11 @@ abstract class BaseFragment<VB : ViewBinding> :Fragment(){
     abstract fun onCreateAfter()
     open fun handleMessage(msg: Message) {}
     private fun getViewBinding(container: ViewGroup?): VB {
-        val superclass: Type = javaClass.genericSuperclass
+        var superclass: Type = javaClass.genericSuperclass
+        //多加了一层instanceof的判断
+        if (superclass !is ParameterizedType){
+            superclass = javaClass.superclass.genericSuperclass
+        }
         val aClass:Class<VB> = (superclass as ParameterizedType).actualTypeArguments[0] as Class<VB>
         try {
             val method: Method = aClass.getDeclaredMethod("inflate", LayoutInflater::class.java, ViewGroup::class.java, Boolean::class.javaPrimitiveType)
