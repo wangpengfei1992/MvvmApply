@@ -1,16 +1,22 @@
 package com.anker.common.utils
 
+import android.annotation.TargetApi
 import android.content.ContentUris
 import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.graphics.*
+import android.graphics.drawable.BitmapDrawable
 import android.media.ExifInterface
 import android.net.Uri
 import android.os.Build
 import android.os.Environment
 import android.provider.DocumentsContract
 import android.provider.MediaStore
+import android.renderscript.Allocation
+import android.renderscript.RenderScript
+import android.renderscript.ScriptIntrinsicBlur
+import android.view.View
 import androidx.annotation.RequiresApi
 import java.io.File
 import java.io.IOException
@@ -184,5 +190,54 @@ object BitmapUtils {
         ) // Bitmap is entirely transparent
 
         // crop bitmap to non-transparent area and return:
+    }
+
+    /**
+     *
+     * @param context 上下文
+     * @param bkg 原图
+     * @param view 需要模糊背景的控件
+     * @param isDownScale 是否降低等级，优化效率（建议开启）
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    fun doBlur(context:Context, bkg:Bitmap, view: View, isDownScale:Boolean) {
+        var scaleFactor = 1f
+        var radius = 20f
+
+        if (isDownScale) {
+            scaleFactor = 8f
+            radius = 2f
+        }
+
+        var overlay = Bitmap.createBitmap((view.measuredWidth / scaleFactor).toInt(),
+                (view.measuredHeight / scaleFactor).toInt(), Bitmap.Config.ARGB_8888)
+
+        var  canvas = Canvas(overlay)
+
+        canvas.translate(-view.getLeft() / scaleFactor, -view.getTop() / scaleFactor);
+        canvas.scale(1 / scaleFactor, 1 / scaleFactor);
+        var paint = Paint()
+        paint.flags = Paint.FILTER_BITMAP_FLAG
+        canvas.drawBitmap(bkg, 0f, 0f, paint)
+
+        var rs = RenderScript.create(context)
+
+        var overlayAlloc = Allocation.createFromBitmap(
+                rs, overlay)
+
+        var blur = ScriptIntrinsicBlur.create(
+                rs, overlayAlloc.element)
+
+        blur.setInput(overlayAlloc)
+
+        blur.setRadius(radius)
+
+        blur.forEach(overlayAlloc)
+
+        overlayAlloc.copyTo(overlay)
+
+        view.background = BitmapDrawable(context.resources, overlay)
+
+        rs.destroy()
     }
 }
